@@ -5,10 +5,10 @@ class ConvoyCli < Formula
 
   desc "CLI for Pytilia Convoy"
   homepage "https://github.com/pytilia/homebrew-tap"
-  url "https://github.com/pytilia/homebrew-tap/releases/download/convoy-cli-v0.1.5/convoy_cli-0.1.5-py3-none-any.whl",
+  url "https://github.com/pytilia/homebrew-tap/releases/download/convoy-cli-v0.1.6/convoy_cli-0.1.6-py3-none-any.whl",
       using: :nounzip
-  version "0.1.5"
-  sha256 "d3437720f44844d2b18fcec1da257664b0f145771dfdba96f6f6da7f3df314ed"
+  version "0.1.6"
+  sha256 "a03ff457e7638d78ce523f249bd0b8dab4a051b6ce25144ad3cd625a58be1aac"
   license :cannot_represent # proprietary artifact; formula file MIT (see repo LICENSE)
 
   depends_on "python@3.14"
@@ -104,15 +104,15 @@ class ConvoyCli < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/43/89/9518bc0c3929bee36b3a4a8e3daddd6e03f92f9961c66d4983b837160543/typer-0.27.1-py3-none-any.whl",
+    url "https://files.pythonhosted.org/packages/dc/bf/205d0004930ede8f542fb58f601526fccf4ae7626075ca1e6c4de5d3d652/typer-0.27.2-py3-none-any.whl",
         using: :nounzip
-    sha256 "53150287edd11baeb4e4722c8e394fcdf8181c0ae89485cba8d25c778d5edd56"
+    sha256 "b3a5fc4342d5fc8fda8fc3010b1cf117e9249aab7fae800c2eff62fd3842d97d"
   end
 
   def install
     venv = virtualenv_create(libexec, "python3.14")
     venv.pip_install resources
-    venv.pip_install_and_link buildpath/"convoy_cli-0.1.5-py3-none-any.whl"
+    venv.pip_install_and_link buildpath/"convoy_cli-0.1.6-py3-none-any.whl"
   end
 
   test do
