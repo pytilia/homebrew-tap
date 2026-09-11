@@ -5,10 +5,10 @@ class ConvoyCli < Formula
 
   desc "CLI for Pytilia Convoy"
   homepage "https://github.com/pytilia/homebrew-tap"
-  url "https://github.com/pytilia/homebrew-tap/releases/download/convoy-cli-v0.1.6/convoy_cli-0.1.6-py3-none-any.whl",
+  url "https://github.com/pytilia/homebrew-tap/releases/download/convoy-cli-v0.1.7/convoy_cli-0.1.7-py3-none-any.whl",
       using: :nounzip
-  version "0.1.6"
-  sha256 "a03ff457e7638d78ce523f249bd0b8dab4a051b6ce25144ad3cd625a58be1aac"
+  version "0.1.7"
+  sha256 "a60e56751aa35d63c8bb7cdc706dbdedf152b0717b857ecfd86f9fda83db9e7d"
   license :cannot_represent # proprietary artifact; formula file MIT (see repo LICENSE)
 
   depends_on "python@3.14"
@@ -44,15 +44,15 @@ class ConvoyCli < Formula
   end
 
   resource "httpcore2" do
-    url "https://files.pythonhosted.org/packages/e5/4f/d149104195a35e2853a2fc203a8e3477747e58c80e17dda686dace174383/httpcore2-2.10.0-py3-none-any.whl",
+    url "https://files.pythonhosted.org/packages/d2/74/d370e55600d9bcfa0d9794b0166126d49291a3d2b20c268fc98c453a4948/httpcore2-2.12.0-py3-none-any.whl",
         using: :nounzip
-    sha256 "7df06cfb34070cae4f7c89be69dc1095eca138e9704ceffb98d25c1912ab6f01"
+    sha256 "7e04258ce01013d7d615e5b910a3b27fac937d7a95038227e79652b4ba3b4ceb"
   end
 
   resource "httpx2" do
-    url "https://files.pythonhosted.org/packages/b9/6d/a637d52449d98a6892d9a4dc0262587afdb6a66f201871842dce5a97b1c1/httpx2-2.10.0-py3-none-any.whl",
+    url "https://files.pythonhosted.org/packages/c8/95/411ba65569158e862368917aaf56597f3e5fa3b91b0502919638465a08f3/httpx2-2.12.0-py3-none-any.whl",
         using: :nounzip
-    sha256 "5e3194a432701e1cc6f69a8b1b2fa199ef907013fede8d9a09a2c5b7b8141a18"
+    sha256 "cc8b6eecb8661c146b8f89a60e97456ee086e91a784ed31ac450c3a9e613dd36"
   end
 
   resource "hyperframe" do
@@ -112,7 +112,7 @@ class ConvoyCli < Formula
   def install
     venv = virtualenv_create(libexec, "python3.14")
     venv.pip_install resources
-    venv.pip_install_and_link buildpath/"convoy_cli-0.1.6-py3-none-any.whl"
+    venv.pip_install_and_link buildpath/"convoy_cli-0.1.7-py3-none-any.whl"
   end
 
   test do
