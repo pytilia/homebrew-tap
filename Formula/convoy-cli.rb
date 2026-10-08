@@ -32,15 +32,15 @@ class ConvoyCli < Formula
   end
 
   resource "h2" do
-    url "https://files.pythonhosted.org/packages/69/b2/119f6e6dcbd96f9069ce9a2665e0146588dc9f88f29549711853645e736a/h2-4.3.0-py3-none-any.whl",
+    url "https://files.pythonhosted.org/packages/7e/22/e85faf23bd72a92d1921e37d674ca56eb298a3c8be31fdecef0ff2b3aaac/h2-4.4.1-py3-none-any.whl",
         using: :nounzip
-    sha256 "c438f029a25f7945c69e0ccf0fb951dc3f73a5f6412981daee861431b70e2bdd"
+    sha256 "0e25f1462b23c9cb82d9eb02e28bc706dac2a68cb457c6a0d74d63c8a2a5d0e6"
   end
 
   resource "hpack" do
-    url "https://files.pythonhosted.org/packages/07/c6/80c95b1b2b94682a72cbdbfb85b81ae2daffa4291fbfa1b1464502ede10d/hpack-4.1.0-py3-none-any.whl",
+    url "https://files.pythonhosted.org/packages/71/b4/4a9fcfb2aef6ba44d9073ecd301443aa00b3dac95de5619f2a7de7ec8a91/hpack-4.2.0-py3-none-any.whl",
         using: :nounzip
-    sha256 "157ac792668d995c657d93111f46b4535ed114f0c9c8d672271bbec7eae1b496"
+    sha256 "858ac0b02280fa582b5080d68db0899c62a80375e0e5413a74970c5e518b6986"
   end
 
   resource "httpcore2" do
