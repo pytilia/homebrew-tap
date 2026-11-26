@@ -5,10 +5,10 @@ class GoldlineCli < Formula
 
   desc "CLI for Goldline"
   homepage "https://github.com/pytilia/homebrew-tap"
-  url "https://github.com/pytilia/homebrew-tap/releases/download/goldline-cli-v0.2.0/goldline_cli-0.2.0-py3-none-any.whl",
+  url "https://github.com/pytilia/homebrew-tap/releases/download/goldline-cli-v0.2.1/goldline_cli-0.2.1-py3-none-any.whl",
       using: :nounzip
-  version "0.2.0"
-  sha256 "7fc6ecb0021688c7b2028afc84b1ce567659cda5273511a9842d8529a3be4429"
+  version "0.2.1"
+  sha256 "f2bad3e539a5c8ea851dbd91a7f8f2e704926725c00a7bcdc4012fe6654cef63"
   license :cannot_represent # proprietary artifact; formula file MIT (see repo LICENSE)
 
   depends_on "python@3.15"
@@ -112,7 +112,7 @@ class GoldlineCli < Formula
   def install
     venv = virtualenv_create(libexec, "python3.15")
     venv.pip_install resources
-    venv.pip_install_and_link buildpath/"goldline_cli-0.2.0-py3-none-any.whl"
+    venv.pip_install_and_link buildpath/"goldline_cli-0.2.1-py3-none-any.whl"
   end
 
   test do
