@@ -5,10 +5,10 @@ class GoldlineCli < Formula
 
   desc "CLI for Goldline"
   homepage "https://github.com/pytilia/homebrew-tap"
-  url "https://github.com/pytilia/homebrew-tap/releases/download/goldline-cli-v0.2.1/goldline_cli-0.2.1-py3-none-any.whl",
+  url "https://github.com/pytilia/homebrew-tap/releases/download/goldline-cli-v0.2.2/goldline_cli-0.2.2-py3-none-any.whl",
       using: :nounzip
-  version "0.2.1"
-  sha256 "f2bad3e539a5c8ea851dbd91a7f8f2e704926725c00a7bcdc4012fe6654cef63"
+  version "0.2.2"
+  sha256 "fcd1049c3c9b9c63019631e0857ec392e2d0ec86e10ea794e2d62b5c937d711a"
   license :cannot_represent # proprietary artifact; formula file MIT (see repo LICENSE)
 
   depends_on "python@3.15"
@@ -17,6 +17,12 @@ class GoldlineCli < Formula
     url "https://files.pythonhosted.org/packages/1e/d3/26bf1008eb3d2daa8ef4cacc7f3bfdc11818d111f7e2d0201bc6e3b49d45/annotated_doc-0.0.4-py3-none-any.whl",
         using: :nounzip
     sha256 "571ac1dc6991c450b25a9c2d84a3705e2ae7a53467b5d111c24fa8baabbed320"
+  end
+
+  resource "annotated-types" do
+    url "https://files.pythonhosted.org/packages/99/91/8acff4f5e50511b911bbccb72b8628a49c68ce14148cd9f6431094859a90/annotated_types-0.8.0-py3-none-any.whl",
+        using: :nounzip
+    sha256 "f072f4d804ea359e4eaf198b1af7a8b0943881a87f31bb764f8bf219bb9419e0"
   end
 
   resource "anyio" do
@@ -79,6 +85,12 @@ class GoldlineCli < Formula
     sha256 "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"
   end
 
+  resource "pydantic" do
+    url "https://files.pythonhosted.org/packages/8a/8c/824a686c4ba815ddb0722f9e66272088bccd4e1ae1d2f7015375e4a4fc7f/pydantic-2.14.4-py3-none-any.whl",
+        using: :nounzip
+    sha256 "653a2ad9f6d8858529c77c72717d0ea991d6c6837fe683246b2f4b2bbfc3fadc"
+  end
+
   resource "pygments" do
     url "https://files.pythonhosted.org/packages/f4/7e/a72dd26f3b0f4f2bf1dd8923c85f7ceb43172af56d63c7383eb62b332364/pygments-2.20.0-py3-none-any.whl",
         using: :nounzip
@@ -104,15 +116,66 @@ class GoldlineCli < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/19/98/8ef60c7cd773dbab9d276a4c7bff505913a25b61acd8a9ef01ceeb70f554/typer-0.28.0-py3-none-any.whl",
+    url "https://files.pythonhosted.org/packages/62/f3/864dcb0e165b52e9f75aa3c7e0aeeb9876f139c66eb14d87856bb173b0fa/typer-0.29.2-py3-none-any.whl",
         using: :nounzip
-    sha256 "afd18929180b706c5e9a239f53c3c8136903553c0c2d460598bbaa924191d4ab"
+    sha256 "f30731f8ca758368b836b3714872e58e395cef8fcaff918c853b1969ed5274e7"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl",
+        using: :nounzip
+    sha256 "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8"
+  end
+
+  resource "typing-inspection" do
+    url "https://files.pythonhosted.org/packages/de/0c/ea2544850a7c135e15033a5c7a8e7211136184b7ae63e2239d557c2b3019/typing_inspection-0.4.5-py3-none-any.whl",
+        using: :nounzip
+    sha256 "bc210535442b39e1bf2805e0c7a17dfd6a4ace760c84c7f7d16245d23a6b1c39"
+  end
+
+  on_macos do
+    on_arm do
+      resource "pydantic-core" do
+        url "https://files.pythonhosted.org/packages/ac/29/2cc2423f489d4526825d2371d047de505760260462eb72d838fc5e934aca/pydantic_core-2.50.5-cp315-cp315-macosx_11_0_arm64.whl",
+            using: :nounzip
+        sha256 "e93587aaa5660536b9188686e8fe0544b577ec57d896d424b5b2118b151a6845"
+      end
+    end
+    on_intel do
+      resource "pydantic-core" do
+        url "https://files.pythonhosted.org/packages/34/7c/7ab4dd1eaad75d20c596a4b2a36961a98f344aa0bad2938edbe644214baa/pydantic_core-2.50.5-cp315-cp315-macosx_10_12_x86_64.whl",
+            using: :nounzip
+        sha256 "c4c4313dc66f45822b3d7f39aa74e59e7987cf7572b3309005b26d956a0098a9"
+      end
+    end
+  end
+
+  on_linux do
+    on_arm do
+      resource "pydantic-core" do
+        url "https://files.pythonhosted.org/packages/91/3f/8d12c17b4a55097c164759b38136bbd2abe3f2668f0d908fd3d0d4a7e0fd/pydantic_core-2.50.5-cp315-cp315-manylinux2014_aarch64.manylinux_2_17_aarch64.whl",
+            using: :nounzip
+        sha256 "568e928322f0b6b94671fc1a4dbc867627af74695b0c060ac6d4f25b6a7425d8"
+      end
+    end
+    on_intel do
+      resource "pydantic-core" do
+        url "https://files.pythonhosted.org/packages/e9/8f/a8f56878763b6fdeca69b73d9b4c44aa4526bfa6a386da21792ed0b766ce/pydantic_core-2.50.5-cp315-cp315-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+            using: :nounzip
+        sha256 "0d6e614776c8c99495dcfc6ce8f826277fb4388a5e5cbee23c199cbe39e6dcb3"
+      end
+    end
   end
 
   def install
     venv = virtualenv_create(libexec, "python3.15")
-    venv.pip_install resources
-    venv.pip_install_and_link buildpath/"goldline_cli-0.2.1-py3-none-any.whl"
+    # Not `venv.pip_install resources`: given a resource, that only hands pip
+    # the wheel file when it is a py3-none-any wheel. A platform wheel would be
+    # installed as if its staging directory were a source tree.
+    resources.each do |r|
+      r.stage { venv.pip_install Pathname.pwd/r.downloader.basename }
+    end
+    venv.pip_install_and_link buildpath/"goldline_cli-0.2.2-py3-none-any.whl"
   end
 
   test do
